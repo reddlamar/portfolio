@@ -2,10 +2,16 @@ import type { ReactNode } from 'react'
 
 interface CardProps {
   children: ReactNode
+  tone?: 'light' | 'dark'
 }
 
-export function Card({ children }: CardProps) {
+const toneClasses = {
+  light: 'border-slate-200 bg-white',
+  dark: 'border-white/10 bg-gradient-to-br from-navy-800 to-navy-950 text-white',
+}
+
+export function Card({ children, tone = 'light' }: CardProps) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">{children}</div>
+    <div className={`rounded-2xl border p-6 shadow-sm ${toneClasses[tone]}`}>{children}</div>
   )
 }
