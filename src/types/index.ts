@@ -25,12 +25,19 @@ export interface ExperienceEntry {
 
 export type ProjectStatus = 'live' | 'in-review'
 
+export interface ProjectScreenshot {
+  src: string
+  alt: string
+}
+
 export interface Project {
   name: string
   description: string
   status: ProjectStatus
   badge?: string
   tags: string[]
+  icon?: string
+  screenshots?: ProjectScreenshot[]
   links: {
     label: string
     href: string
