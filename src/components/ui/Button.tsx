@@ -4,12 +4,13 @@ interface ButtonProps {
   href: string
   children: ReactNode
   external?: boolean
-  variant?: 'primary' | 'secondary'
+  variant?: 'primary' | 'secondary' | 'inverse'
 }
 
 const variantClasses = {
   primary: 'bg-accent text-white hover:bg-accent-dark',
   secondary: 'border border-ink/20 text-ink hover:border-accent-dark hover:text-accent-dark',
+  inverse: 'border border-white/30 text-white hover:border-white hover:bg-white/10',
 }
 
 export function Button({ href, children, external = false, variant = 'primary' }: ButtonProps) {
