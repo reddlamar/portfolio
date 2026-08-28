@@ -8,6 +8,11 @@ const inReviewProject: Project = {
   status: 'in-review',
   badge: 'Coming Soon on the App Store',
   tags: ['React Native'],
+  icon: '/icon.png',
+  screenshots: [
+    { src: '/home.png', alt: 'Sunlit Math home screen' },
+    { src: '/game.png', alt: 'Sunlit Math gameplay screen' },
+  ],
   links: [{ label: 'App Store (coming soon)', href: '#' }],
 }
 
@@ -42,6 +47,31 @@ describe('Projects', () => {
     expect(screen.getByRole('link', { name: 'View live' })).toHaveAttribute(
       'href',
       'https://example.com',
+    )
+  })
+
+  it('renders the app icon when provided', () => {
+    render(<Projects items={[inReviewProject]} />)
+    expect(screen.getByRole('img', { name: 'Sunlit Math app icon' })).toHaveAttribute(
+      'src',
+      '/icon.png',
+    )
+  })
+
+  it('does not render an icon when none is provided', () => {
+    render(<Projects items={[liveProject]} />)
+    expect(screen.queryByRole('img', { name: /app icon/ })).not.toBeInTheDocument()
+  })
+
+  it('renders every screenshot with its alt text', () => {
+    render(<Projects items={[inReviewProject]} />)
+    expect(screen.getByRole('img', { name: 'Sunlit Math home screen' })).toHaveAttribute(
+      'src',
+      '/home.png',
+    )
+    expect(screen.getByRole('img', { name: 'Sunlit Math gameplay screen' })).toHaveAttribute(
+      'src',
+      '/game.png',
     )
   })
 })
