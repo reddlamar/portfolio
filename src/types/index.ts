@@ -6,6 +6,7 @@ export interface Profile {
   phone: string
   location: string
   github: string
+  linkedin: string
 }
 
 export interface SkillGroup {
