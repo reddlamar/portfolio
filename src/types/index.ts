@@ -38,10 +38,16 @@ export interface Project {
   tags: string[]
   icon?: string
   screenshots?: ProjectScreenshot[]
-  links: {
-    label: string
-    href: string
-  }[]
+  links: ProjectLink[]
+}
+
+export type Store = 'app-store'
+
+export interface ProjectLink {
+  label: string
+  href?: string
+  store?: Store
+  comingSoon?: boolean
 }
 
 export interface EducationEntry {

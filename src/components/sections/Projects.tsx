@@ -2,6 +2,7 @@ import type { Project } from '../../types'
 import { SectionHeading } from '../ui/SectionHeading'
 import { Card } from '../ui/Card'
 import { Badge } from '../ui/Badge'
+import { StoreBadge } from '../ui/StoreBadge'
 
 interface ProjectsProps {
   items: Project[]
@@ -59,15 +60,28 @@ export function Projects({ items }: ProjectsProps) {
                     </span>
                   ))}
                 </div>
-                <div className="mt-4 flex gap-4">
+                <div className="mt-4 flex flex-wrap items-center gap-4">
                   {project.links.map((link) => (
-                    <a
-                      key={link.label}
-                      href={link.href}
-                      className={`text-sm font-semibold hover:underline ${tagText}`}
-                    >
-                      {link.label}
-                    </a>
+                    <span key={link.label} className="inline-flex items-center gap-2">
+                      {link.href ? (
+                        <a
+                          href={link.href}
+                          {...(/^https?:\/\//.test(link.href)
+                            ? { target: '_blank', rel: 'noreferrer noopener' }
+                            : {})}
+                          className={
+                            link.store
+                              ? 'inline-block'
+                              : `text-sm font-semibold hover:underline ${tagText}`
+                          }
+                        >
+                          {link.store ? <StoreBadge store={link.store} /> : link.label}
+                        </a>
+                      ) : (
+                        <span className={`text-sm font-semibold ${mutedText}`}>{link.label}</span>
+                      )}
+                      {link.comingSoon && <Badge tone={tone}>Coming Soon</Badge>}
+                    </span>
                   ))}
                 </div>
               </Card>
