@@ -10,6 +10,7 @@ const profile: Profile = {
   phone: '555-555-5555',
   location: 'Remote',
   github: 'https://github.com/janedev',
+  linkedin: 'https://www.linkedin.com/in/janedev/',
 }
 
 describe('Hero', () => {

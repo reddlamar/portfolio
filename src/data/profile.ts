@@ -9,10 +9,12 @@ export const profile: Profile = {
   phone: '916.767.9769',
   location: 'California',
   github: 'https://github.com/reddlamar',
+  linkedin: 'https://www.linkedin.com/in/lamar-redd-198373298/',
 }
 
 export const contactLinks: ContactLink[] = [
   { label: 'Email', href: `mailto:${profile.email}` },
   { label: 'Phone', href: `tel:${profile.phone.replace(/\./g, '-')}` },
   { label: 'GitHub', href: profile.github },
+  { label: 'LinkedIn', href: profile.linkedin },
 ]
