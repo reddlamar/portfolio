@@ -12,4 +12,13 @@ describe('App', () => {
     expect(screen.getByRole('heading', { name: 'Education & Certificates' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Contact' })).toBeInTheDocument()
   })
+
+  it('credits Apple trademarks because the App Store badge is shown', () => {
+    render(<App />)
+    expect(screen.getByRole('img', { name: 'Download on the App Store' })).toBeInTheDocument()
+    expect(
+      screen.getByText(/Apple and the Apple logo are trademarks of Apple Inc\./),
+    ).toBeInTheDocument()
+    expect(screen.getByText(/App Store is a service mark of Apple Inc\./)).toBeInTheDocument()
+  })
 })

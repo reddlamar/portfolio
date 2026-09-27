@@ -50,6 +50,68 @@ describe('Projects', () => {
     )
   })
 
+  it('opens external links in a new tab', () => {
+    render(<Projects items={[liveProject]} />)
+    const link = screen.getByRole('link', { name: 'View live' })
+    expect(link).toHaveAttribute('target', '_blank')
+    expect(link).toHaveAttribute('rel', 'noreferrer noopener')
+  })
+
+  it('renders a store link as the official store badge', () => {
+    const href = 'https://apps.apple.com/us/app/example/id1'
+    render(
+      <Projects
+        items={[{ ...liveProject, links: [{ label: 'App Store', href, store: 'app-store' }] }]}
+      />,
+    )
+    expect(screen.getByRole('link', { name: 'Download on the App Store' })).toHaveAttribute(
+      'href',
+      href,
+    )
+    expect(screen.queryByText('App Store')).not.toBeInTheDocument()
+  })
+
+  it('renders plain links as text without a badge', () => {
+    render(<Projects items={[liveProject]} />)
+    expect(screen.getByRole('link', { name: 'View live' }).querySelector('img')).toBeNull()
+  })
+
+  it('shows a link without an href as plain text with a Coming Soon badge', () => {
+    render(
+      <Projects items={[{ ...liveProject, links: [{ label: 'Android', comingSoon: true }] }]} />,
+    )
+    expect(screen.getByText('Android')).toBeInTheDocument()
+    expect(screen.queryByRole('link', { name: 'Android' })).not.toBeInTheDocument()
+    expect(screen.getByText('Coming Soon')).toBeInTheDocument()
+  })
+
+  it('shows a Coming Soon badge next to a link that has an href', () => {
+    render(
+      <Projects
+        items={[
+          {
+            ...liveProject,
+            links: [{ label: 'Pre-register', href: 'https://example.com', comingSoon: true }],
+          },
+        ]}
+      />,
+    )
+    expect(screen.getByRole('link', { name: 'Pre-register' })).toBeInTheDocument()
+    expect(screen.getByText('Coming Soon')).toBeInTheDocument()
+  })
+
+  it('does not show a Coming Soon badge on released links', () => {
+    render(<Projects items={[liveProject]} />)
+    expect(screen.queryByText('Coming Soon')).not.toBeInTheDocument()
+  })
+
+  it('keeps in-page links in the same tab', () => {
+    render(<Projects items={[inReviewProject]} />)
+    expect(screen.getByRole('link', { name: 'App Store (coming soon)' })).not.toHaveAttribute(
+      'target',
+    )
+  })
+
   it('renders the app icon when provided', () => {
     render(<Projects items={[inReviewProject]} />)
     expect(screen.getByRole('img', { name: 'Sunlit Math app icon' })).toHaveAttribute(

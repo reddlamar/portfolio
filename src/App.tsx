@@ -11,6 +11,7 @@ import { skills } from './data/skills'
 import { experience } from './data/experience'
 import { projects } from './data/projects'
 import { education } from './data/education'
+import { trademarkCredits } from './data/legal'
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
         <Education items={education} />
         <Contact links={contactLinks} />
       </main>
-      <Footer name={profile.name} />
+      <Footer name={profile.name} credits={trademarkCredits} />
     </>
   )
 }
