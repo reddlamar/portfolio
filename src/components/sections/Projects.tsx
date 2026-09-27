@@ -3,6 +3,7 @@ import { SectionHeading } from '../ui/SectionHeading'
 import { Card } from '../ui/Card'
 import { Badge } from '../ui/Badge'
 import { StoreBadge } from '../ui/StoreBadge'
+import { ComingSoonBadge } from '../ui/ComingSoonBadge'
 
 interface ProjectsProps {
   items: Project[]
@@ -61,28 +62,40 @@ export function Projects({ items }: ProjectsProps) {
                   ))}
                 </div>
                 <div className="mt-4 flex flex-wrap items-center gap-4">
-                  {project.links.map((link) => (
-                    <span key={link.label} className="inline-flex items-center gap-2">
-                      {link.href ? (
-                        <a
-                          href={link.href}
-                          {...(/^https?:\/\//.test(link.href)
-                            ? { target: '_blank', rel: 'noreferrer noopener' }
-                            : {})}
-                          className={
-                            link.store
-                              ? 'inline-block'
-                              : `text-sm font-semibold hover:underline ${tagText}`
-                          }
-                        >
-                          {link.store ? <StoreBadge store={link.store} /> : link.label}
-                        </a>
-                      ) : (
-                        <span className={`text-sm font-semibold ${mutedText}`}>{link.label}</span>
-                      )}
-                      {link.comingSoon && <Badge tone={tone}>Coming Soon</Badge>}
-                    </span>
-                  ))}
+                  {project.links.map((link) => {
+                    const content = link.store ? (
+                      <StoreBadge store={link.store} />
+                    ) : link.comingSoon ? (
+                      <ComingSoonBadge label={link.label} />
+                    ) : (
+                      link.label
+                    )
+                    const isBadge = Boolean(link.store || link.comingSoon)
+
+                    return link.href ? (
+                      <a
+                        key={link.label}
+                        href={link.href}
+                        {...(/^https?:\/\//.test(link.href)
+                          ? { target: '_blank', rel: 'noreferrer noopener' }
+                          : {})}
+                        className={
+                          isBadge
+                            ? 'inline-block'
+                            : `text-sm font-semibold hover:underline ${tagText}`
+                        }
+                      >
+                        {content}
+                      </a>
+                    ) : (
+                      <span
+                        key={link.label}
+                        className={isBadge ? 'inline-block' : `text-sm font-semibold ${mutedText}`}
+                      >
+                        {content}
+                      </span>
+                    )
+                  })}
                 </div>
               </Card>
             </div>
