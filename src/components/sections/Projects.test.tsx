@@ -76,16 +76,17 @@ describe('Projects', () => {
     expect(screen.getByRole('link', { name: 'View live' }).querySelector('img')).toBeNull()
   })
 
-  it('shows a link without an href as plain text with a Coming Soon badge', () => {
+  it('shows a coming-soon link without an href as a non-clickable Coming Soon badge', () => {
     render(
       <Projects items={[{ ...liveProject, links: [{ label: 'Android', comingSoon: true }] }]} />,
     )
-    expect(screen.getByText('Android')).toBeInTheDocument()
-    expect(screen.queryByRole('link', { name: 'Android' })).not.toBeInTheDocument()
-    expect(screen.getByText('Coming Soon')).toBeInTheDocument()
+    expect(screen.getByText('Android').parentElement).toBe(
+      screen.getByText('Coming Soon').parentElement,
+    )
+    expect(screen.queryByRole('link', { name: /Android/ })).not.toBeInTheDocument()
   })
 
-  it('shows a Coming Soon badge next to a link that has an href', () => {
+  it('makes the Coming Soon badge the link when it has an href', () => {
     render(
       <Projects
         items={[
@@ -96,8 +97,9 @@ describe('Projects', () => {
         ]}
       />,
     )
-    expect(screen.getByRole('link', { name: 'Pre-register' })).toBeInTheDocument()
-    expect(screen.getByText('Coming Soon')).toBeInTheDocument()
+    const link = screen.getByRole('link', { name: /Pre-register/ })
+    expect(link).toHaveAttribute('href', 'https://example.com')
+    expect(link).toContainElement(screen.getByText('Coming Soon'))
   })
 
   it('does not show a Coming Soon badge on released links', () => {
