@@ -22,9 +22,6 @@ describe('Hero', () => {
 
   it('renders a call-to-action link to the contact section', () => {
     render(<Hero profile={profile} />)
-    expect(screen.getByRole('link', { name: /get in touch/i })).toHaveAttribute(
-      'href',
-      '#contact',
-    )
+    expect(screen.getByRole('link', { name: /get in touch/i })).toHaveAttribute('href', '#contact')
   })
 })

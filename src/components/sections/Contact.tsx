@@ -15,7 +15,12 @@ export function Contact({ links }: ContactProps) {
       </p>
       <div className="mt-6 flex flex-wrap justify-center gap-4">
         {links.map((link) => (
-          <Button key={link.label} href={link.href} variant="secondary" external={link.href.startsWith('http')}>
+          <Button
+            key={link.label}
+            href={link.href}
+            variant="secondary"
+            external={link.href.startsWith('http')}
+          >
             {link.label}
           </Button>
         ))}

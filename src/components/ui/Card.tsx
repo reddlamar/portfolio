@@ -11,7 +11,5 @@ const toneClasses = {
 }
 
 export function Card({ children, tone = 'light' }: CardProps) {
-  return (
-    <div className={`rounded-2xl border p-6 shadow-sm ${toneClasses[tone]}`}>{children}</div>
-  )
+  return <div className={`rounded-2xl border p-6 shadow-sm ${toneClasses[tone]}`}>{children}</div>
 }
