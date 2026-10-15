@@ -13,9 +13,9 @@ describe('projects data', () => {
     expect(appStoreLink?.store).toBe('app-store')
   })
 
-  it('lists Android as coming soon, after the App Store badge', () => {
+  it('lists Google Play as coming soon, after the App Store badge', () => {
     const links = projects.find((project) => project.name === 'Sunlit Math')?.links ?? []
-    expect(links.map((link) => link.label)).toEqual(['App Store', 'Android'])
-    expect(links[1]).toEqual({ label: 'Android', comingSoon: true })
+    expect(links.map((link) => link.label)).toEqual(['App Store', 'Google Play'])
+    expect(links[1]).toEqual({ label: 'Google Play', comingSoon: true })
   })
 })
