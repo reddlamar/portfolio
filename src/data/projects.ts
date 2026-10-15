@@ -10,7 +10,7 @@ export const projects: Project[] = [
   {
     name: 'Sunlit Math',
     description:
-      'A math game built for children ages 5–10, designed to make early math practice playful and engaging on iOS and Android.',
+      'A 60-second beat-the-clock math game for kids ages 5–10. Built privacy-first: no ads, no accounts, no data collection, and an on-device leaderboard.',
     status: 'live',
     badge: 'Now on the App Store',
     tags: ['React Native', 'TypeScript', 'Mobile'],
@@ -31,7 +31,7 @@ export const projects: Project[] = [
         href: 'https://apps.apple.com/us/app/sunlit-math/id6806609026',
         store: 'app-store',
       },
-      { label: 'Android', comingSoon: true },
+      { label: 'Google Play', comingSoon: true },
     ],
   },
 ]

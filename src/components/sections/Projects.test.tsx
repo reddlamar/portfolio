@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { Projects } from './Projects'
+import { projects } from '../../data/projects'
 import type { Project } from '../../types'
 
 const inReviewProject: Project = {
@@ -137,5 +138,28 @@ describe('Projects', () => {
       'src',
       '/game.png',
     )
+  })
+})
+
+describe('Projects with the Sunlit Math data', () => {
+  it('shows Google Play as a non-clickable Coming Soon badge', () => {
+    render(<Projects items={projects} />)
+    expect(screen.getByText('Google Play').parentElement).toBe(
+      screen.getByText('Coming Soon').parentElement,
+    )
+    expect(screen.queryByRole('link', { name: /Google Play/ })).not.toBeInTheDocument()
+  })
+
+  it('describes the game and its privacy-first design', () => {
+    render(<Projects items={projects} />)
+    expect(screen.getByText(/60-second beat-the-clock math game/)).toBeInTheDocument()
+    expect(screen.getByText(/no ads, no accounts, no data collection/)).toBeInTheDocument()
+  })
+
+  // Release state lives in the links and badge only. When Android ships, this test goes
+  // away in the same commit that swaps in the Google Play link.
+  it('does not claim Android availability while Google Play is coming soon', () => {
+    const [sunlitMath] = projects
+    expect(sunlitMath.description).not.toMatch(/android/i)
   })
 })
