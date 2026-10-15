@@ -9,6 +9,12 @@ export interface Profile {
   linkedin: string
 }
 
+// A calendar month, with the month numbered 1-12.
+export interface MonthYear {
+  year: number
+  month: number
+}
+
 export interface SkillGroup {
   category: string
   items: string[]
