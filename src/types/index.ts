@@ -20,8 +20,10 @@ export interface ExperienceEntry {
   location: string
   start: string
   end: string
-  description: string
+  description?: string
   achievements: string[]
+  // Client work done through a consulting employer, shown nested under it.
+  engagements?: ExperienceEntry[]
 }
 
 export type ProjectStatus = 'live' | 'in-review'
