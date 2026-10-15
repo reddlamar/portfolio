@@ -2,35 +2,48 @@ import type { ExperienceEntry } from '../types'
 
 export const experience: ExperienceEntry[] = [
   {
-    company: 'Freedom Mortgage',
-    role: 'Front-End Software Engineer',
+    company: 'Sunlit Studio',
+    role: 'Founder & Software Engineer',
     location: 'Remote',
-    start: 'July 2024',
-    end: 'August 2026',
+    start: 'September 2026',
+    end: 'Present',
     description:
-      'Worked within a team of engineers focusing mostly on developing features in JavaScript, React, and React Native for web and mobile mortgage refinancing platforms.',
+      'Independent software studio building web and mobile applications for small businesses.',
     achievements: [
-      'Leveraged React, React Native, JSX, Material UI, and Native Base to overhaul the mortgage refinance user interface, simplifying financial calculations and driving higher user application rates.',
-      'Engineered secure, seamless data integrations by implementing API requests using React Query and Axios to fetch and update user profiles.',
-      'Built a comprehensive contact management feature using JavaScript and React Native, enabling users to seamlessly save and update their communication preferences.',
-      'Optimized component rendering and minimized application lag by integrating React hooks and advanced state management strategies.',
-      'Developed a dynamic tool allowing users to adjust pre-qualified loan amounts instantly and download tailored DocuTech verification letters.',
-      "Optimized application performance and code reusability across components using React's Context API and the useReducer hook.",
-      'Created a scheduling system that empowered users to set times to review and sign documents, reducing reliance on manual agent assistance.',
-      'Extended existing system capabilities by writing back-end functionality and API integrations using Java.',
+      'Founded and run a solo software studio, owning client scoping, architecture, development, and delivery end to end.',
+      'Designed, built, and shipped Sunlit Math, a 60-second beat-the-clock math game for kids ages 5–10, to the Apple App Store, owning product design, development, and release.',
+      'Built the app privacy-first, with no ads, no accounts, and no data collection, using an on-device leaderboard.',
+      'Launched and managed paid user-acquisition campaigns on TikTok, Instagram, and Facebook.',
     ],
   },
   {
     company: 'Tech Consulting',
-    role: 'Front-End Software Engineer',
+    role: 'Software Engineer Consultant',
     location: 'Remote',
     start: 'January 2024',
     end: 'August 2026',
     description:
-      'Connected top-tier consultants with talent acquisition seeking proven expertise to help companies move faster and solve complex challenges.',
-    achievements: [
-      'Selected for intensive, direct technical training under a Senior JavaScript Engineer to master modern React and React Native paradigms.',
-      'Collaborated on complex web builds and participated in technical mock interviews to refine software engineering methodologies.',
+      'Consulting firm placing engineers on client projects. Delivered React and React Native client work alongside a senior JavaScript engineer, then contracted to Freedom Mortgage.',
+    achievements: [],
+    engagements: [
+      {
+        company: 'Freedom Mortgage',
+        role: 'Front-End Software Engineer (Contract)',
+        location: 'Remote',
+        start: 'July 2024',
+        end: 'August 2026',
+        description:
+          'Mortgage lender and servicer. Built web and mobile features for the mortgage refinancing platform.',
+        achievements: [
+          'Overhauled the web and mobile mortgage refinance UI with React, React Native, Material UI, and Native Base, simplifying financial calculations and increasing completed applications.',
+          'Built a pre-qualification tool that lets users adjust loan amounts instantly and download tailored DocuTech verification letters.',
+          'Created a document-signing scheduler that lets users book times to review and sign documents, reducing manual agent assistance.',
+          'Implemented secure profile data integrations with React Query and Axios, including caching and cache invalidation for user profile updates.',
+          'Built a contact-preferences feature in React Native that lets users save and update how they are contacted.',
+          'Reduced rendering lag by restructuring state with React hooks, Context API, and useReducer, and improved component reuse across the app.',
+          'Wrote back-end functionality and API integrations in Java, delivering features end to end across the front end and services.',
+        ],
+      },
     ],
   },
   {
@@ -39,15 +52,14 @@ export const experience: ExperienceEntry[] = [
     location: 'San Diego, CA',
     start: 'July 2021',
     end: 'October 2023',
-    description:
-      'A video game marketplace allowing users to resell digital versions of their PC games. Worked within a small team focusing mostly on user-facing features in JavaScript and React.',
+    description: 'Digital PC game marketplace that lets users resell digital game licenses.',
     achievements: [
-      'Partnered directly with the CTO and Senior JavaScript Engineer to modernize user-facing digital video game marketplace features, significantly enhancing sprint efficiency.',
-      'Led a full front-end architecture rewrite using React, JSX, and Tailwind CSS, substantially improving page load speeds, reducing bugs, and increasing codebase readability.',
-      'Programmed a high-conversion checkout page and built the front-end architecture for processing credit cards, debit cards, and secure card-saving preferences.',
-      'Designed and executed e-commerce logic to manage inner-platform digital currency transactions and convert digital balances into real US dollars.',
-      'Integrated the third-party PayPal API to expand native payment processing solutions for the platform.',
-      'Revamped the "Stash" inventory page by creating a localized data context, eliminating redundant server API calls and accelerating application navigation.',
+      'Led a full front-end architecture rewrite in React and Tailwind CSS, cutting page load time and reducing bugs while making the codebase easier to maintain.',
+      'Built the checkout page and front-end payment architecture for credit and debit cards, including secure saved-card preferences.',
+      'Designed the transaction logic for the in-platform digital currency, including converting digital balances to US dollars.',
+      'Integrated the PayPal API to add a second native payment method.',
+      'Rebuilt the "Stash" inventory page around a local data context, eliminating redundant API calls and speeding up navigation.',
+      'Partnered directly with the CTO and senior JavaScript engineer to modernize marketplace features and improve sprint delivery.',
     ],
   },
   {
@@ -56,12 +68,11 @@ export const experience: ExperienceEntry[] = [
     location: 'Remote',
     start: 'December 2020',
     end: 'June 2021',
-    description:
-      'Developed front-end web-based applications for users looking to purchase or refinance mortgage loans.',
+    description: 'Built front-end applications for mortgage purchase and refinance customers.',
     achievements: [
-      'Built production-ready web and mobile front-end architectures using AngularJS, Ionic Framework, HTML, CSS, and SCSS.',
-      'Developed intuitive digital user flows for mortgage loan applications and refinancing options.',
-      'Contributed to the development of a hybrid mobile application supporting a monthly vehicle subscription business model.',
+      'Built production web and hybrid mobile front ends with AngularJS, Ionic Framework, HTML, and SCSS.',
+      'Designed user flows for mortgage loan applications and refinancing options.',
+      'Contributed to a hybrid mobile app for a monthly vehicle-subscription business.',
     ],
   },
   {
@@ -70,12 +81,12 @@ export const experience: ExperienceEntry[] = [
     location: 'El Segundo, CA',
     start: 'July 2016',
     end: 'October 2019',
-    description: 'Developed web-based applications for front-end and back-end.',
+    description: 'Built front-end and back-end web applications for engineering teams.',
     achievements: [
-      'Built cross-functional web applications, implementing an Angular user interface backed by Python computational tools.',
-      'Designed and integrated custom REST APIs leveraging Angular and Angular Material.',
-      'Authored automated JScript automation scripts within the SPARX EA API to handle complex diagram data manipulation.',
-      'Designed responsive custom internal websites within SharePoint Designer utilizing XSLT, HTML, CSS, and jQuery.',
+      'Built web applications with Angular for the frontend and backed by Python computational tools.',
+      'Designed custom REST APIs and integrated them with Angular and Angular Material interfaces.',
+      'Wrote JScript automation against the Sparx EA API to manipulate complex diagram data.',
+      'Built responsive internal websites in SharePoint Designer with XSLT, HTML, CSS, and jQuery.',
     ],
   },
   {
@@ -84,9 +95,8 @@ export const experience: ExperienceEntry[] = [
     location: 'Redondo Beach, CA',
     start: 'June 2013',
     end: 'July 2016',
-    description: 'Programmed customized enterprise web applications on the SharePoint platform.',
     achievements: [
-      'Programmed customized enterprise web applications on the SharePoint platform utilizing C#, JavaScript, HTML, and jQuery.',
+      'Built custom enterprise web applications on SharePoint with C#, JavaScript, HTML, and jQuery.',
     ],
   },
 ]
