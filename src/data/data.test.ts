@@ -1,4 +1,5 @@
 import { experience } from './experience'
+import { careerStart } from './profile'
 import { skills } from './skills'
 import type { ExperienceEntry } from '../types'
 
@@ -27,6 +28,15 @@ describe('experience data', () => {
   it('has a unique company and start date per entry, since they form the React key', () => {
     const keys = entries.map((entry) => `${entry.company}-${entry.start}`)
     expect(new Set(keys).size).toBe(keys.length)
+  })
+
+  it('begins the career at the earliest job, which is listed last', () => {
+    const earliest = experience[experience.length - 1]
+    const careerStartLabel = new Date(careerStart.year, careerStart.month - 1).toLocaleString(
+      'en-US',
+      { month: 'long', year: 'numeric' },
+    )
+    expect(careerStartLabel).toBe(earliest.start)
   })
 
   it('gives every entry a company, role, start, and end', () => {
