@@ -12,6 +12,7 @@ import { experience } from './data/experience'
 import { projects } from './data/projects'
 import { education } from './data/education'
 import { trademarkCredits } from './data/legal'
+import { brand } from './data/brand'
 
 function App() {
   return (
@@ -23,9 +24,9 @@ function App() {
         <Experience jobs={experience} />
         <Projects items={projects} />
         <Education items={education} />
-        <Contact links={contactLinks} />
+        <Contact links={contactLinks} location={profile.location} />
       </main>
-      <Footer name={profile.name} credits={trademarkCredits} />
+      <Footer name={brand.name} credits={trademarkCredits} />
     </>
   )
 }

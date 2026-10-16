@@ -1,8 +1,9 @@
 import type { ExperienceEntry } from '../types'
+import { brands } from './brand'
 
 export const experience: ExperienceEntry[] = [
   {
-    company: 'Sunlit Studio',
+    company: brands.studio.name,
     role: 'Founder & Software Engineer',
     location: 'Remote',
     start: 'September 2026',

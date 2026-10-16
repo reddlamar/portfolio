@@ -24,4 +24,22 @@ describe('Contact', () => {
       'https://www.linkedin.com/in/lamar-redd-198373298/',
     )
   })
+
+  it('shows a decorative brand icon beside each link without changing its name', () => {
+    render(<Contact links={links} />)
+    ;['Email', 'GitHub', 'LinkedIn'].forEach((label) => {
+      const link = screen.getByRole('link', { name: label })
+      expect(link.querySelector('svg')).toHaveAttribute('aria-hidden', 'true')
+    })
+  })
+
+  it('shows where the business is based when a location is given', () => {
+    render(<Contact links={links} location="Atlanta, GA" />)
+    expect(screen.getByText('Based in Atlanta, GA')).toBeInTheDocument()
+  })
+
+  it('omits the location line when none is given', () => {
+    render(<Contact links={links} />)
+    expect(screen.queryByText(/Based in/)).not.toBeInTheDocument()
+  })
 })

@@ -8,7 +8,8 @@ interface ButtonProps {
 }
 
 const variantClasses = {
-  primary: 'bg-accent text-white hover:bg-accent-dark',
+  primary:
+    'bg-accent text-navy-950 shadow-lg shadow-accent/25 hover:-translate-y-0.5 hover:bg-white',
   secondary: 'border border-ink/20 text-ink hover:border-accent-dark hover:text-accent-dark',
   inverse: 'border border-white/30 text-white hover:border-white hover:bg-white/10',
 }
@@ -18,7 +19,7 @@ export function Button({ href, children, external = false, variant = 'primary' }
     <a
       href={href}
       {...(external ? { target: '_blank', rel: 'noreferrer noopener' } : {})}
-      className={`inline-flex items-center rounded-full px-5 py-2.5 text-sm font-semibold transition-colors ${variantClasses[variant]}`}
+      className={`inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all ${variantClasses[variant]}`}
     >
       {children}
     </a>
