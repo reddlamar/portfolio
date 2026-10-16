@@ -12,15 +12,13 @@ export const profile: Profile = {
   title: 'Front-End Software Engineer',
   summary: buildSummary(yearsSince(careerStart)),
   email: 'reddlamar1@gmail.com',
-  phone: '555.555.5555',
-  location: 'California',
+  location: 'Atlanta, GA',
   github: 'https://github.com/reddlamar',
   linkedin: 'https://www.linkedin.com/in/lamar-redd-198373298/',
 }
 
 export const contactLinks: ContactLink[] = [
   { label: 'Email', href: `mailto:${profile.email}` },
-  { label: 'Phone', href: `tel:${profile.phone.replace(/\./g, '-')}` },
   { label: 'GitHub', href: profile.github },
   { label: 'LinkedIn', href: profile.linkedin },
 ]
