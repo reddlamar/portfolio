@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { Nav } from './Nav'
+import { brand } from '../../data/brand'
 
 describe('Nav', () => {
   it('renders a link for every section', () => {
@@ -10,5 +11,10 @@ describe('Nav', () => {
         `#${label.toLowerCase()}`,
       )
     })
+  })
+
+  it('shows the brand name as a logo link back to the top', () => {
+    render(<Nav />)
+    expect(screen.getByRole('link', { name: brand.name })).toHaveAttribute('href', '#home')
   })
 })

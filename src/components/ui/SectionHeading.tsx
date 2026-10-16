@@ -1,15 +1,24 @@
 interface SectionHeadingProps {
   title: string
   eyebrow?: string
+  tone?: 'light' | 'dark'
 }
 
-export function SectionHeading({ title, eyebrow }: SectionHeadingProps) {
+export function SectionHeading({ title, eyebrow, tone = 'light' }: SectionHeadingProps) {
   return (
-    <div className="mb-8">
+    <div className="mb-10">
       {eyebrow && (
-        <p className="text-sm font-semibold tracking-wide text-accent-dark uppercase">{eyebrow}</p>
+        <p
+          className={`text-sm font-semibold tracking-wide uppercase ${tone === 'dark' ? 'text-accent' : 'text-accent-dark'}`}
+        >
+          {eyebrow}
+        </p>
       )}
-      <h2 className="text-3xl font-bold text-ink">{title}</h2>
+      <h2
+        className={`mt-1 text-3xl font-extrabold tracking-tight sm:text-4xl ${tone === 'dark' ? 'text-white' : 'text-ink'}`}
+      >
+        {title}
+      </h2>
     </div>
   )
 }

@@ -7,7 +7,6 @@ const profile: Profile = {
   title: 'Front-End Software Engineer',
   summary: 'A summary of Jane.',
   email: 'jane@example.com',
-  phone: '555-555-5555',
   location: 'Remote',
   github: 'https://github.com/janedev',
   linkedin: 'https://www.linkedin.com/in/janedev/',

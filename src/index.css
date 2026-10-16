@@ -5,6 +5,7 @@
   --color-navy-950: #0a1128;
   --color-navy-800: #142452;
   --color-paper: #f8fafc;
+  --color-sun: #fbbf24;
   --color-accent: #38bdf8;
   --color-accent-dark: #0ea5e9;
   --color-muted: #64748b;
@@ -21,4 +22,15 @@ body {
   background-color: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-sans);
+}
+
+/* Soft sky-blue glow behind dark hero/contact bands */
+.hero-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 50% at 50% 0%, rgb(56 189 248 / 0.22), transparent 70%),
+    radial-gradient(40% 40% at 90% 100%, rgb(20 36 82 / 0.9), transparent 70%);
+  pointer-events: none;
 }

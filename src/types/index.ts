@@ -3,7 +3,6 @@ export interface Profile {
   title: string
   summary: string
   email: string
-  phone: string
   location: string
   github: string
   linkedin: string
