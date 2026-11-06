@@ -6,7 +6,7 @@ import { Projects } from './components/sections/Projects'
 import { Education } from './components/sections/Education'
 import { Contact } from './components/sections/Contact'
 import { Footer } from './components/sections/Footer'
-import { profile, contactLinks } from './data/profile'
+import { profile, contactLinks, marketplaceLinks } from './data/profile'
 import { skills } from './data/skills'
 import { experience } from './data/experience'
 import { projects } from './data/projects'
@@ -24,7 +24,11 @@ function App() {
         <Experience jobs={experience} />
         <Projects items={projects} />
         <Education items={education} />
-        <Contact links={contactLinks} location={profile.location} />
+        <Contact
+          links={contactLinks}
+          marketplaceLinks={marketplaceLinks}
+          location={profile.location}
+        />
       </main>
       <Footer name={brand.name} credits={trademarkCredits} />
     </>

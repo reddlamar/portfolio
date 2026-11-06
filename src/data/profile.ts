@@ -22,3 +22,9 @@ export const contactLinks: ContactLink[] = [
   { label: 'GitHub', href: profile.github },
   { label: 'LinkedIn', href: profile.linkedin },
 ]
+
+// Freelance marketplace profiles: a secondary way to hire, shown below the direct contact links.
+export const marketplaceLinks: ContactLink[] = [
+  { label: 'Upwork', href: 'https://www.upwork.com/freelancers/~01687120acd3b610aa' },
+  { label: 'Fiverr', href: 'https://www.fiverr.com/lamar788' },
+]

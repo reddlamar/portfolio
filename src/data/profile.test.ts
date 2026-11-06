@@ -1,4 +1,4 @@
-import { buildSummary, careerStart, contactLinks, profile } from './profile'
+import { buildSummary, careerStart, contactLinks, marketplaceLinks, profile } from './profile'
 import { yearsSince } from '../utils/yearsSince'
 
 describe('profile data', () => {
@@ -7,6 +7,19 @@ describe('profile data', () => {
       label: 'LinkedIn',
       href: 'https://www.linkedin.com/in/lamar-redd-198373298/',
     })
+  })
+})
+
+describe('marketplace links', () => {
+  it('links to the public Upwork and Fiverr profiles', () => {
+    expect(marketplaceLinks).toEqual([
+      { label: 'Upwork', href: 'https://www.upwork.com/freelancers/~01687120acd3b610aa' },
+      { label: 'Fiverr', href: 'https://www.fiverr.com/lamar788' },
+    ])
+  })
+
+  it('never links to a logged-in dashboard page', () => {
+    marketplaceLinks.forEach((link) => expect(link.href).not.toMatch(/\/edit|\/dashboard/))
   })
 })
 
