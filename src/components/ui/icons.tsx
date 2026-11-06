@@ -39,6 +39,26 @@ export function LinkedInIcon(props: IconProps) {
   )
 }
 
+export function UpworkIcon(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z" />
+    </Icon>
+  )
+}
+
+// Fiverr's "fi" app mark, drawn by hand as a rounded square with the letters cut out.
+export function FiverrIcon(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <path
+        fillRule="evenodd"
+        d="M5 2h14a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3zM7.5 18V12.8H6V11h1.5v-.7C7.5 8.9 8.4 8 9.9 8H11v1.8h-.8c-.4 0-.5.2-.5.6V11H11v1.8H9.7V18zM13.2 11h2v7h-2zM13.1 8.7a1.1 1.1 0 1 0 2.2 0 1.1 1.1 0 1 0-2.2 0z"
+      />
+    </Icon>
+  )
+}
+
 // Outlined map pin, drawn in the current text color.
 export function PinIcon(props: IconProps) {
   return (

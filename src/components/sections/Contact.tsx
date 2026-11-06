@@ -1,17 +1,46 @@
 import type { ContactLink } from '../../types'
 import { SectionHeading } from '../ui/SectionHeading'
 import { Button } from '../ui/Button'
-import { GitHubIcon, GmailIcon, LinkedInIcon, PinIcon } from '../ui/icons'
+import { FiverrIcon, GitHubIcon, GmailIcon, LinkedInIcon, PinIcon, UpworkIcon } from '../ui/icons'
 
 // Contact link label -> its icon.
-const contactIcons = { Email: GmailIcon, GitHub: GitHubIcon, LinkedIn: LinkedInIcon }
+const contactIcons = {
+  Email: GmailIcon,
+  GitHub: GitHubIcon,
+  LinkedIn: LinkedInIcon,
+  Upwork: UpworkIcon,
+  Fiverr: FiverrIcon,
+}
+
+function ContactButtons({ links }: { links: ContactLink[] }) {
+  return (
+    <div className="flex flex-wrap justify-center gap-4">
+      {links.map((link) => {
+        const LinkIcon = contactIcons[link.label as keyof typeof contactIcons]
+
+        return (
+          <Button
+            key={link.label}
+            href={link.href}
+            variant="inverse"
+            external={link.href.startsWith('http')}
+          >
+            {LinkIcon && <LinkIcon className="h-5 w-5 shrink-0" />}
+            {link.label}
+          </Button>
+        )
+      })}
+    </div>
+  )
+}
 
 interface ContactProps {
   links: ContactLink[]
+  marketplaceLinks?: ContactLink[]
   location?: string
 }
 
-export function Contact({ links, location }: ContactProps) {
+export function Contact({ links, marketplaceLinks = [], location }: ContactProps) {
   return (
     <section
       id="contact"
@@ -29,23 +58,15 @@ export function Contact({ links, location }: ContactProps) {
             Based in {location}
           </p>
         )}
-        <div className="mt-8 flex flex-wrap justify-center gap-4">
-          {links.map((link) => {
-            const LinkIcon = contactIcons[link.label as keyof typeof contactIcons]
-
-            return (
-              <Button
-                key={link.label}
-                href={link.href}
-                variant="inverse"
-                external={link.href.startsWith('http')}
-              >
-                {LinkIcon && <LinkIcon className="h-5 w-5 shrink-0" />}
-                {link.label}
-              </Button>
-            )
-          })}
+        <div className="mt-8">
+          <ContactButtons links={links} />
         </div>
+        {marketplaceLinks.length > 0 && (
+          <div className="mt-10">
+            <p className="mb-4 text-sm text-white/60">Or hire me on</p>
+            <ContactButtons links={marketplaceLinks} />
+          </div>
+        )}
       </div>
     </section>
   )
